@@ -5,3 +5,7 @@ body{background:#faf8f5;padding:38px 0 0}body:before{display:block;content:'';po
 
 @media(min-width:1101px){.hero h1{font-size:70px;line-height:1.5}.luvei-hero-photo{left:38%;width:29%}}
 @media(max-width:700px){.hero-inner{height:739px}.luvei-hero-photo{top:140px;height:235px}.hero-desc{top:412px}.hero-benefit{top:484px}.hero-actions{top:559px}.hero-price{top:623px}.english-badge{top:56px;border:0;padding:0}.english-badge>span{font-size:10px}.english-badge small{font-size:9px}}
+
+/* Move the fabric from the outer canvas into the hero. */
+body:before{display:none}.hero{background:#f7f4ee}.hero:before{display:block;content:'';position:absolute;inset:0;z-index:0;opacity:1;background:linear-gradient(90deg,#ffffffe6 0%,#ffffffe0 43%,#ffffffb8 100%),url('assets/ivory-fabric.webp') center 40%/cover;pointer-events:none}.hero-inner{z-index:1}.header{background:#faf8f5}
+@media(max-width:700px){.hero:before{background:linear-gradient(#ffffffd9,#ffffffe6),url('assets/ivory-fabric.webp') center 36%/cover}.header{background:#faf8f5}}
