@@ -16,9 +16,8 @@ if('scrollRestoration'in history)history.scrollRestoration='manual';if(!location
 const krw=n=>n.toLocaleString();for(const g of ['women','men'])document.querySelector(`[data-price=${g}]`).innerHTML=krw(CONFIG.prices[g].event)+'<small>원</small>';
 if(new Date()>new Date(CONFIG.eventEnd)){document.querySelector('.price-heading>p').innerHTML='자연눈썹 일반 판매가<br>현금가';document.querySelectorAll('.event-rule').forEach(e=>e.textContent='일반 판매가 · 현금가');for(const group of ['women','men'])document.querySelector(`[data-price=${group}]`).innerHTML=CONFIG.prices[group].regular.toLocaleString()+'<small>원</small>';}
 
-// Play the visible hero film on desktop and mobile.
-const heroVideos=[...document.querySelectorAll('.hero-brand-video')],videoToggle=document.querySelector('.hero-video-toggle'),mobileVideoQuery=matchMedia('(max-width:700px)');
+// Autoplay the visible hero film without on-screen playback controls.
+const heroVideos=[...document.querySelectorAll('.hero-brand-video')],mobileVideoQuery=matchMedia('(max-width:700px)');
 function activeHeroVideo(){return document.querySelector(mobileVideoQuery.matches?'.mobile-hero-video':'.desktop-hero-video');}
-function videoLabel(paused){videoToggle.textContent=paused?'\uC601\uC0C1 \uC7AC\uC0DD':'\uC601\uC0C1 \uC77C\uC2DC\uC815\uC9C0';videoToggle.setAttribute('aria-label',videoToggle.textContent);}
-function syncHeroVideo(){const active=activeHeroVideo();heroVideos.forEach(v=>{if(v!==active){v.pause();return;}const source=v.querySelector('source');if(!source.src){source.src=source.dataset.src;v.load();}v.muted=true;v.play().catch(()=>videoLabel(true));});}
-videoToggle.addEventListener('click',()=>{const v=activeHeroVideo();if(v.paused){v.play().catch(()=>{});}else{v.pause();}});heroVideos.forEach(v=>{v.addEventListener('play',()=>{if(v===activeHeroVideo())videoLabel(false);});v.addEventListener('pause',()=>{if(v===activeHeroVideo())videoLabel(true);});});mobileVideoQuery.addEventListener('change',syncHeroVideo);syncHeroVideo();
+function syncHeroVideo(){const active=activeHeroVideo();heroVideos.forEach(v=>{if(v!==active){v.pause();return;}const source=v.querySelector('source');if(!source.src){source.src=source.dataset.src;v.load();}v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.controls=false;v.play().catch(()=>{});});}
+mobileVideoQuery.addEventListener('change',syncHeroVideo);document.addEventListener('visibilitychange',()=>{if(!document.hidden)syncHeroVideo();});syncHeroVideo();
