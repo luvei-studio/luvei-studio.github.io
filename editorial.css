@@ -66,3 +66,16 @@ body{font-family:'Noto Serif KR',serif;font-weight:500}h1,h2,h3,.hero h1,.work .
 .hero-desktop-film{position:relative;align-self:stretch;margin:0;min-height:530px;overflow:hidden}.desktop-hero-video{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.hero-desktop-film figcaption{position:absolute;bottom:13px;left:16px;font-family:Pretendard,sans-serif;font-size:11px;color:#fff;text-shadow:0 1px 4px #0009}
 @media(min-width:701px){.hero-video-toggle{display:block;position:absolute;right:60px;top:200px;z-index:5;background:#241d1850;border:1px solid #ffffff85;padding:8px 11px;color:#fff;font-family:Pretendard,sans-serif;font-size:11px;cursor:pointer}}
 @media(max-width:700px){.hero-desktop-film{display:none}}
+
+/* Fixed contact: Kakao and Naver, matching the supplied two-pill reference. */
+.fixed-contact{gap:12px;padding:10px;background:#f6f2e9f5;border:0;border-radius:48px;box-shadow:0 3px 20px #372c1d10;width:540px;max-width:calc(100% - 28px);align-items:stretch}.fixed-contact a,.fixed-contact a:first-child{flex:1;min-width:0;justify-content:center;gap:12px;padding:15px 12px;min-height:58px;border-radius:40px;font-family:Pretendard,sans-serif;font-size:18px;font-weight:700;line-height:1.4;white-space:nowrap;border:1px solid transparent}.fixed-contact .fixed-kakao{background:#fee500;color:#171600;border-color:#fee500}.fixed-contact .fixed-naver{background:#fffdfa;color:#282724;border:1px solid #ded5c9}.fixed-kakao svg{width:26px;height:26px;flex:none}.naver-icon{display:flex;align-items:center;justify-content:center;width:29px;height:29px;border-radius:7px;background:#03c75a;color:white;font:900 24px/1 Pretendard,sans-serif;flex:none}
+@media(max-width:700px){.fixed-contact{left:12px;right:12px;width:auto;max-width:none;transform:translateY(20px);bottom:max(12px,env(safe-area-inset-bottom));padding:7px;gap:8px;border-radius:40px}.fixed-contact.visible{transform:translateY(0)}.fixed-contact a,.fixed-contact a:first-child{font-size:14px;padding:12px 8px;gap:8px;min-height:50px}.fixed-kakao svg{width:22px;height:22px}.naver-icon{width:24px;height:24px;border-radius:6px;font-size:20px}}
+@media(max-width:360px){.fixed-contact a,.fixed-contact a:first-child{font-size:12px;gap:6px}}
+
+.fixed-contact .fixed-kakao,.fixed-contact .fixed-naver{flex:1 1 0;width:0}
+
+.fixed-contact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.fixed-contact .fixed-kakao,.fixed-contact .fixed-naver{width:auto}
+
+.fixed-contact .fixed-kakao,.fixed-contact .fixed-naver{width:100%;justify-self:stretch}
+
+.fixed-contact a.fixed-naver{background:#fffdfa;border-color:#ded5c9;color:#282724}.fixed-contact a.fixed-kakao{background:#fee500;border-color:#fee500;color:#171600}
