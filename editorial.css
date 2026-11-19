@@ -79,3 +79,10 @@ body{font-family:'Noto Serif KR',serif;font-weight:500}h1,h2,h3,.hero h1,.work .
 .fixed-contact .fixed-kakao,.fixed-contact .fixed-naver{width:100%;justify-self:stretch}
 
 .fixed-contact a.fixed-naver{background:#fffdfa;border-color:#ded5c9;color:#282724}.fixed-contact a.fixed-kakao{background:#fee500;border-color:#fee500;color:#171600}
+
+/* Actual result and studio footage replaces selected still images. */
+.inline-film{display:block;width:100%;height:100%;object-fit:cover;background:#f4f1ec}.mens-photo .inline-film{height:450px;border-radius:48% 48% 0 0;object-position:50% 20%}.process-media .inline-film{height:365px;object-position:50% 30%}.space-images>.inline-film{height:330px;object-position:50% 45%}#gallery .inline-film{height:100%;width:100%;object-fit:cover;object-position:50% 25%}
+@media(max-width:700px){.mens-photo .inline-film{height:auto;aspect-ratio:3/4}.process-media .inline-film{height:225px}.space-images>.inline-film{height:220px}}
+
+.space-images{grid-template-columns:.8fr 1.2fr}.space-images>.inline-film,.space-images>img{height:420px}.space-images>.inline-film{object-position:50% 50%}
+@media(max-width:700px){.space-images{grid-template-columns:1fr;gap:20px}.space-images>.inline-film{height:auto;aspect-ratio:3/4}.space-images>img{height:280px}}
