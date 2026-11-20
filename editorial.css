@@ -109,3 +109,7 @@ body{font-family:'Noto Serif KR',serif;font-weight:500}h1,h2,h3,.hero h1,.work .
 
 /* A perceptible, restrained sway of the paper frame only. */
 .mens-poster-frame{transform-origin:50% 40%;will-change:transform}.mens-brand-poster.in .mens-poster-frame{animation:mensPaperSway 5.6s ease-in-out infinite}@keyframes mensPaperSway{0%,100%{transform:translate(0,0) rotate(-.35deg)}25%{transform:translate(2px,-1px) rotate(.2deg)}50%{transform:translate(0,-2px) rotate(.45deg)}75%{transform:translate(-2px,-1px) rotate(-.15deg)}}html:not(.motion) .mens-poster-frame{animation:none!important;transform:none;will-change:auto}
+
+/* Return women's results to a vertical gallery, with optional photo expansion. */
+#gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;scroll-snap-type:none;gap:24px}#gallery>.case,#gallery>.case:nth-child(even){padding:0;min-width:0}#gallery>.case[hidden]{display:none}.women-photos-more{display:block;margin:30px auto 0;min-width:180px;padding:14px 24px;font-size:16px;background:transparent;color:#4e4439;border:1px solid #b7aa9c;cursor:pointer}.mens-brand-poster.in .mens-poster-frame{animation:mensPaperVertical 1.8s ease-in-out infinite}.mens-poster-frame{transform-origin:center}@keyframes mensPaperVertical{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media(max-width:700px){#gallery{grid-template-columns:1fr;gap:22px}.women-photos-more{font-size:15px}}
