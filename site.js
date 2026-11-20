@@ -32,3 +32,9 @@ document.querySelectorAll('.inline-film').forEach(v=>filmObserver.observe(v));do
 // Start with real videos, then let visitors expand the remaining women's photos.
 const womenMore=document.createElement('button');womenMore.type='button';womenMore.className='more women-photos-more';womenMore.textContent='사진 더보기';womenMore.setAttribute('aria-expanded','false');womenMore.setAttribute('aria-controls','gallery');gallery.after(womenMore);
 womenMore.addEventListener('click',()=>{const expanded=womenMore.getAttribute('aria-expanded')!=='true';gallery.querySelectorAll('[data-extra-photo]').forEach(item=>{item.hidden=!expanded;});womenMore.setAttribute('aria-expanded',String(expanded));womenMore.textContent=expanded?'사진 접기':'사진 더보기';});
+
+// FAQ cards reveal once; ambient photo motion pauses when the section leaves view.
+const faqEditorial=document.querySelector('.faq-editorial');
+const faqCardObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('faq-in');faqCardObserver.unobserve(e.target);}});},{threshold:.18});
+faqEditorial.querySelectorAll('.faq-editorial-card,.faq-editorial-heading').forEach(el=>faqCardObserver.observe(el));
+const faqSceneObserver=new IntersectionObserver(entries=>{faqEditorial.classList.toggle('faq-active',entries[0].isIntersecting);},{threshold:.05});faqSceneObserver.observe(faqEditorial);
