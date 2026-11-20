@@ -106,3 +106,6 @@ body{font-family:'Noto Serif KR',serif;font-weight:500}h1,h2,h3,.hero h1,.work .
 .mens-poster-layer{filter:url(#mens-print-ink)}
 
 .mens-poster-frame{background-image:url('assets/mens-frame-overlay.png');filter:none}.mens-poster-caption{background:none;clip-path:none;inset:52.6% 15% auto;height:3%;filter:none;text-align:center;color:#eee;font-family:'Cormorant Garamond',serif;font-size:clamp(10px,1.7vw,20px);line-height:1.5;letter-spacing:.9em;padding-left:.9em}
+
+/* A perceptible, restrained sway of the paper frame only. */
+.mens-poster-frame{transform-origin:50% 40%;will-change:transform}.mens-brand-poster.in .mens-poster-frame{animation:mensPaperSway 5.6s ease-in-out infinite}@keyframes mensPaperSway{0%,100%{transform:translate(0,0) rotate(-.35deg)}25%{transform:translate(2px,-1px) rotate(.2deg)}50%{transform:translate(0,-2px) rotate(.45deg)}75%{transform:translate(-2px,-1px) rotate(-.15deg)}}html:not(.motion) .mens-poster-frame{animation:none!important;transform:none;will-change:auto}
